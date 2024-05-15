@@ -6,31 +6,46 @@ Welcome to my Neovim configuration repository! This repository contains my perso
 
 ## Prerequisites
 
-    - Neovim 0.6.0 or later
-    - Ripgrep (rg) 11.0.2 or later
-    - Lazygit 0.30.3 or later
-    ```bash
-        brew install jesseduffield/lazygit/lazygit
-    ```
+- Neovim 0.6.0 or later
+- Ripgrep (rg) 11.0.2 or later
+- Lazygit 0.30.3 or later
+
+```bash
+sudo apt-get install ripgrep
+sudo apt-get install neovim
+```
+
+```bash
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+```
 
 ## Steps to use my config
 
 1. Create a backup of your existing Neovim configuration (if you have one) by running the following command:
+
    ```bash
-   mv ~/.config/nvim ~/.config/nvim.bak
+       mv ~/.config/nvim ~/.config/nvim.bak
    ```
+
 2. Create a new Neovim configuration directory by running the following command:
    ```bash
    mkdir -p ~/.config/nvim
    ```
 3. Clone this repository into the newly created Neovim configuration directory by running the following command:
-   `bash
+
+   ```bash
     git clone
-    `
+   ```
+
    and remove .git folder
-   `bash
+
+   ```bash
     rm -rf .git
-    `
+   ```
+
    (NOTE: I have used my name as the directory inside the lua folder, feel free to change it to your name or any other name you like. Just make sure to change `monal` in every file to the name you choose.)
 
 4. Install the plugins by opening Neovim and running the following command:
